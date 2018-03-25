@@ -16,3 +16,15 @@ describe('A list containing just one value', function () {
         });
     });
 });
+
+describe('An empty list', function () {
+    var input = [];
+
+    describe("searched for the element closest to zero", function(){
+        var result = function(){ Closest.toZero(input); };
+
+        it("throws an exception", function(){
+            expect(result).toThrow("List must contain at least one value");
+        });
+    });
+});
