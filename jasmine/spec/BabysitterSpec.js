@@ -29,4 +29,20 @@ describe("Babysitter", function() {
         });
     });
 
+    describe("arrives at 8, leaves at 2am, bedtime was 10", function(){
+        var babysitter = new Babysitter(8, 2, 10);
+        var result = babysitter.calculatePay();
+        it("costs $48", function(){
+            expect(result).toBe(48);
+        });
+    });
+
+    describe("arrives at 6, leaves at 3am, bedtime was midnight", function(){
+        var babysitter = new Babysitter(6, 3, 12);
+        var result = babysitter.calculatePay();
+        it("costs $84", function(){
+            expect(result).toBe(84);
+        });
+    });
+
 });
