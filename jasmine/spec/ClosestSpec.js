@@ -52,3 +52,15 @@ describe('A list containing two values, one of which is zero', function () {
         });
     });
 });
+
+describe('A list containing several positive, ascending values', function () {
+    var input = [1, 1, 2, 3, 5, 8, 13, 21, 34];
+
+    describe("searched for the element closest to zero", function(){
+        var result = Closest.toZero(input);
+
+        it("returns the first element", function(){
+            expect(result).toBe(input[0]);
+        });
+    });
+});
