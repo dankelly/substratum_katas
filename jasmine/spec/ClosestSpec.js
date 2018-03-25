@@ -40,3 +40,15 @@ describe('A list containing two values equidistant from zero', function () {
         });
     });
 });
+
+describe('A list containing two values, one of which is zero', function () {
+    var input = [0, 7];
+
+    describe("searched for the element closest to zero", function(){
+        var result = Closest.toZero(input);
+
+        it("returns zero", function(){
+            expect(result).toBe(0);
+        });
+    });
+});
