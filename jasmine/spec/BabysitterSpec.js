@@ -14,32 +14,32 @@
 describe("Babysitter", function() {
 
     describe("watches children for two hours before bedtime", function () {
-        var babysitter = new Babysitter(6, 8, 9);
-        var result = babysitter.calculatePay();
+        var babysitter = new Babysitter();
+        var result = babysitter.calculatePay(6, 8, 9);
          it("costs $20", function(){
             expect(result).toBe(20);
         });
     });
 
     describe("arrives at 5 and watches children until bedtime at 8", function(){
-        var babysitter = new Babysitter(5, 8, 8);
-        var result = babysitter.calculatePay();
+        var babysitter = new Babysitter();
+        var result = babysitter.calculatePay(5, 8, 8);
         it("costs $30", function(){
             expect(result).toBe(30);
         });
     });
 
     describe("arrives at 8, leaves at 2am, bedtime was 10", function(){
-        var babysitter = new Babysitter(8, 2, 10);
-        var result = babysitter.calculatePay();
+        var babysitter = new Babysitter();
+        var result = babysitter.calculatePay(8, 2, 10);
         it("costs $48", function(){
             expect(result).toBe(48);
         });
     });
 
     describe("arrives at 6, leaves at 3am, bedtime was midnight", function(){
-        var babysitter = new Babysitter(6, 3, 12);
-        var result = babysitter.calculatePay();
+        var babysitter = new Babysitter();
+        var result = babysitter.calculatePay(6, 3, 12);
         it("costs $84", function(){
             expect(result).toBe(84);
         });

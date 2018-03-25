@@ -1,8 +1,4 @@
-function Babysitter(arrival, departure, bedtime){
-
-    this.arrival = arrival;
-    this.departure = departure;
-    this.bedtime = bedtime;
+function Babysitter(){
 
     this.EARLIEST_ARRIVAL_TIME = 5;
     this.LATEST_BEDTIME = 12;
@@ -12,7 +8,11 @@ function Babysitter(arrival, departure, bedtime){
     this.KIDS_IN_BED_RATE = 6;
     this.AFTER_MIDNIGHT_RATE = 8;
 
-    this.calculatePay = function(){
+    this.calculatePay = function(arrival, departure, bedtime){
+        this.arrival = arrival;
+        this.departure = departure;
+        this.bedtime = bedtime;
+
         return this.getBasePay() - this.adjustPayForSleepingKids() - this.adjustPayForStayingAfterMidnight();
     };
 
