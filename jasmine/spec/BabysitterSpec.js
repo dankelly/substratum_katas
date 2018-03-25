@@ -21,4 +21,12 @@ describe("Babysitter", function() {
         });
     });
 
+    describe("arrives at 5 and watches children until bedtime at 8", function(){
+        var babysitter = new Babysitter(5, 8, 8);
+        var result = babysitter.calculatePay();
+        it("costs $30", function(){
+            expect(result).toBe(30);
+        });
+    });
+
 });
