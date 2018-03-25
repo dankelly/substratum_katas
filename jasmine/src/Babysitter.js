@@ -14,13 +14,7 @@ function Babysitter(arrival, departure, bedtime){
     this.AFTER_MIDNIGHT_RATE = 8;
 
     this.calculatePay = function(){
-
-        var billableHoursAfterMidnight = (this.departure <= this.LATEST_DEPARTURE_TIME ? this.departure : 0);
-        var afterMidnightAdjustment = (this.WATCHING_KIDS_RATE - this.AFTER_MIDNIGHT_RATE) * billableHoursAfterMidnight;
-
-        return this.getBasePay() - this.adjustPayForSleepingKids() - afterMidnightAdjustment;
-
-
+        return this.getBasePay() - this.adjustPayForSleepingKids() - this.adjustPayForStayingAfterMidnight();
     };
 
     this.getBasePay = function(){
@@ -33,6 +27,11 @@ function Babysitter(arrival, departure, bedtime){
         var potentialHoursBilledAtAfterBedtimeRate = lastPossibleHourAtAfterBedtimeRate - this.bedtime;
         var billableHoursAfterBedtime = (potentialHoursBilledAtAfterBedtimeRate > 0 ? potentialHoursBilledAtAfterBedtimeRate : 0);
         return (this.WATCHING_KIDS_RATE - this.KIDS_IN_BED_RATE) * billableHoursAfterBedtime;
+    };
+
+    this.adjustPayForStayingAfterMidnight = function(){
+        var billableHoursAfterMidnight = (this.departure <= this.LATEST_DEPARTURE_TIME ? this.departure : 0);
+        return (this.WATCHING_KIDS_RATE - this.AFTER_MIDNIGHT_RATE) * billableHoursAfterMidnight;
     };
 
 }
