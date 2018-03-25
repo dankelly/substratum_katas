@@ -28,3 +28,15 @@ describe('An empty list', function () {
         });
     });
 });
+
+describe('A list containing two values equidistant from zero', function () {
+    var input = [-7, 7];
+
+    describe("searched for the element closest to zero", function(){
+        var result = Closest.toZero(input);
+
+        it("returns the positive value", function(){
+            expect(result).toBe(7);
+        });
+    });
+});
