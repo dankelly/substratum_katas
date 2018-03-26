@@ -148,3 +148,27 @@ describe('A list containing an already sorted (textbook) example', function () {
         });
     });
 });
+
+describe('A list containing positive and negative zero values', function () {
+    var input = [ -0, -16, -1, 0, 369, 1337, 42 ];
+
+    describe("searched for the element closest to zero", function(){
+        var result = Closest.toZero(input);
+
+        it("returns zero", function(){
+            expect(result).toBe(0);
+        });
+    });
+});
+
+describe('A list containing negative zero values', function () {
+    var input = [ -0, -16, -1, -0, 369, 1337, 42 ];
+
+    describe("searched for the element closest to zero", function(){
+        var result = Closest.toZero(input);
+
+        it("returns zero", function(){
+            expect(result).toBe(0);
+        });
+    });
+});
