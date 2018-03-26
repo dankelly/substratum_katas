@@ -29,8 +29,32 @@ describe('An empty list', function () {
     });
 });
 
+describe('A list containing several sets of duplicate values', function () {
+    var input = [345, -512, 9, -9, -21, 21, -9, 21, 33, 33, 345, -512];
+
+    describe("searched for the element closest to zero", function(){
+        var result = Closest.toZero(input);
+
+        it("returns positive 9", function(){
+            expect(result).toBe(9);
+        });
+    });
+});
+
 describe('A list containing two values equidistant from zero', function () {
     var input = [-7, 7];
+
+    describe("searched for the element closest to zero", function(){
+        var result = Closest.toZero(input);
+
+        it("returns the positive value", function(){
+            expect(result).toBe(7);
+        });
+    });
+});
+
+describe('A bigger list containing two values equidistant from zero', function () {
+    var input = [-1024, -383, -29, -7, 7, 5546];
 
     describe("searched for the element closest to zero", function(){
         var result = Closest.toZero(input);
@@ -60,7 +84,67 @@ describe('A list containing several positive, ascending values', function () {
         var result = Closest.toZero(input);
 
         it("returns the first element", function(){
-            expect(result).toBe(input[0]);
+            expect(result).toBe(1);
+        });
+    });
+});
+
+describe('A list containing several positive, descending values', function () {
+    var input = [34, 21, 13, 8, 5, 3, 2, 1, 1];
+
+    describe("searched for the element closest to zero", function(){
+        var result = Closest.toZero(input);
+
+        it("returns the last element", function(){
+            expect(result).toBe(1);
+        });
+    });
+});
+
+describe('A list containing several negative, decending values', function () {
+    var input = [-1, -1, -2, -3, -5, -8, -13, -21, -34];
+
+    describe("searched for the element closest to zero", function(){
+        var result = Closest.toZero(input);
+
+        it("returns the first element", function(){
+            expect(result).toBe(-1);
+        });
+    });
+});
+
+describe('A list containing several negative, ascending values', function () {
+    var input = [-34, -21, -13, -8, -5, -3, -2, -1, -1];
+
+    describe("searched for the element closest to zero", function(){
+        var result = Closest.toZero(input);
+
+        it("returns the last element", function(){
+            expect(result).toBe(-1);
+        });
+    });
+});
+
+describe('A list containing (almost) a textbook example', function () {
+    var input = [ 2, 3, -1, -6, -108, 42, 10 ];
+
+    describe("searched for the element closest to zero", function(){
+        var result = Closest.toZero(input);
+
+        it("returns -1", function(){
+            expect(result).toBe(-1);
+        });
+    });
+});
+
+describe('A list containing an already sorted (textbook) example', function () {
+    var input = [ -108, -6, -1, 2, 3, 10, 42 ];
+
+    describe("searched for the element closest to zero", function(){
+        var result = Closest.toZero(input);
+
+        it("returns -1", function(){
+            expect(result).toBe(-1);
         });
     });
 });
