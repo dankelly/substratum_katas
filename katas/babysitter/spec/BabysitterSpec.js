@@ -12,7 +12,7 @@
  */
 
 describe("A babysitter", function() {
-    var babysitter = new Babysitter(ARRIVE_AT_OR_AFTER_FIVE__DEPART_AT_OR_BEFORE_FOUR__TIMES_IN_12_HOURS);
+    var babysitter = new Babysitter();
 
     describe("who watches children for two hours before bedtime", function () {
         var result = babysitter.calculatePay(6, 8, 9);
