@@ -2,15 +2,13 @@ var Pricing = {
 
     priceItems: function(itemsFromUser){
         var itemsByCategory = {
-            food: [],
-            alcohol: [],
-            other: []
+            food: [0],
+            alcohol: [0],
+            other: [0]
         };
 
         function sum(integerArray){
-            return integerArray.reduce(function(accumulator, currentValue, currentIndex, origArray){
-                return accumulator + currentValue;
-            }, 0) || 0;
+            return integerArray.reduce( (accumulator, currentValue) => accumulator + currentValue );
         }
 
         itemsFromUser.forEach(function(item){
