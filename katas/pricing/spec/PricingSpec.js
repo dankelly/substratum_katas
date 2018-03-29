@@ -16,162 +16,162 @@ describe("A purchase consisting of:", function() {
     // code common to all scenarios
 
     describe("$20.00 worth of food", function(){
-        var result = Pricing.priceItems( [ {food: 5}, {food: 15} ] );
+        var result = Pricing.priceItems( [ {food: 500}, {food: 1500} ] );
         it("costs $20.00", function(){
-            expect(result).toBe(20);
+            expect(result).toBe(2000);
         });
     });
 
     describe("$99.00 worth of food", function(){
-        var result = Pricing.priceItems( [ {food: 33}, {food: 33}, {food: 33} ] );
+        var result = Pricing.priceItems( [ {food: 3300}, {food: 3300}, {food: 3300} ] );
         it("costs $99.00", function(){
-            expect(result).toBe(99);
+            expect(result).toBe(9900);
         });
     });
 
     describe("$100.00 worth of food", function(){
-        var result = Pricing.priceItems( [ {food: 100} ] );
+        var result = Pricing.priceItems( [ {food: 10000} ] );
         it("costs $90.00", function(){
-            expect(result).toBe(90);
+            expect(result).toBe(9000);
         });
     });
 
     describe("$999.00 worth of food", function(){
-        var result = Pricing.priceItems( [ {food: 100}, {food: 100}, {food: 100}, {food: 100}, {food: 100},
-                                           {food: 100}, {food: 100}, {food: 100}, {food: 100},
-                                           {food: 90}, {food: 9} ] );
+        var result = Pricing.priceItems( [ {food: 10000}, {food: 10000}, {food: 10000}, {food: 10000}, {food: 10000},
+                                           {food: 10000}, {food: 10000}, {food: 10000}, {food: 10000},
+                                           {food: 9000}, {food: 900} ] );
         it("costs $899.10", function(){
-            expect(result).toBe(899.1);
+            expect(result).toBe(89910);
         });
     });
 
     describe("$1000.00 worth of food", function(){
-        var result = Pricing.priceItems( [ {food: 100}, {food: 100}, {food: 100}, {food: 100}, {food: 100},
-                                           {food: 100}, {food: 100}, {food: 100}, {food: 100},
-                                           {food: 95}, {food: 5} ] );
+        var result = Pricing.priceItems( [ {food: 10000}, {food: 10000}, {food: 10000}, {food: 10000}, {food: 10000},
+                                           {food: 10000}, {food: 10000}, {food: 10000}, {food: 10000},
+                                           {food: 9500}, {food: 500} ] );
         it("costs $850.00", function(){
-            expect(result).toBe(850);
+            expect(result).toBe(85000);
         });
     });
 
     describe("$9843.00 worth of food", function(){
-        var result = Pricing.priceItems( [ {food: 3}, {food: 40}, {food: 800}, {food: 9000} ] );
+        var result = Pricing.priceItems( [ {food: 300}, {food: 4000}, {food: 80000}, {food: 900000} ] );
         it("costs $8366.55", function(){
-            expect(result).toBe(8366.55);
+            expect(result).toBe(836655);
         });
     });
 
     /***************************************************/
 
     describe("$20.00 worth of alcohol", function(){
-        var result = Pricing.priceItems( [ {alcohol: 5}, {alcohol: 15} ] );
+        var result = Pricing.priceItems( [ {alcohol: 500}, {alcohol: 1500} ] );
         it("costs $23.10", function(){
-            expect(result).toBe(23.1);
+            expect(result).toBe(2310);
         });
     });
 
     describe("$99.00 worth of alcohol", function(){
-        var result = Pricing.priceItems( [ {alcohol: 33}, {alcohol: 33}, {alcohol: 33} ] );
+        var result = Pricing.priceItems( [ {alcohol: 3300}, {alcohol: 3300}, {alcohol: 3300} ] );
         it("costs $114.35", function(){
-            expect(result).toBe(114.35);
+            expect(result).toBe(11435);
         });
     });
 
     describe("$100.00 worth of alcohol", function(){
-        var result = Pricing.priceItems( [ {alcohol: 100} ] );
+        var result = Pricing.priceItems( [ {alcohol: 10000} ] );
         it("costs $103.95", function(){
-            expect(result).toBe(103.95);
+            expect(result).toBe(10395);
         });
     });
 
     describe("$999.00 worth of alcohol", function(){
-        var result = Pricing.priceItems( [ {alcohol: 100}, {alcohol: 100}, {alcohol: 100}, {alcohol: 100}, {alcohol: 100},
-                                           {alcohol: 100}, {alcohol: 100}, {alcohol: 100}, {alcohol: 100},
-                                           {alcohol: 90}, {alcohol: 9} ] );
+        var result = Pricing.priceItems( [ {alcohol: 10000}, {alcohol: 10000}, {alcohol: 10000}, {alcohol: 10000}, {alcohol: 10000},
+                                           {alcohol: 10000}, {alcohol: 10000}, {alcohol: 10000}, {alcohol: 10000},
+                                           {alcohol: 9000}, {alcohol: 900} ] );
         it("costs $1038.46", function(){
-            expect(result).toBe(1038.46);
+            expect(result).toBe(103846);
         });
     });
 
     describe("$1000.00 worth of alcohol", function(){
-        var result = Pricing.priceItems( [ {alcohol: 100}, {alcohol: 100}, {alcohol: 100}, {alcohol: 100}, {alcohol: 100},
-                                           {alcohol: 100}, {alcohol: 100}, {alcohol: 100}, {alcohol: 100},
-                                           {alcohol: 95}, {alcohol: 5} ] );
+        var result = Pricing.priceItems( [ {alcohol: 10000}, {alcohol: 10000}, {alcohol: 10000}, {alcohol: 10000}, {alcohol: 10000},
+                                           {alcohol: 10000}, {alcohol: 10000}, {alcohol: 10000}, {alcohol: 10000},
+                                           {alcohol: 9500}, {alcohol: 500} ] );
         it("costs $981.75", function(){
-            expect(result).toBe(981.75);
+            expect(result).toBe(98175);
         });
     });
 
     describe("$9843.00 worth of alcohol", function(){
-        var result = Pricing.priceItems( [ {alcohol: 3}, {alcohol: 40}, {alcohol: 800}, {alcohol: 9000} ] );
+        var result = Pricing.priceItems( [ {alcohol: 300}, {alcohol: 4000}, {alcohol: 80000}, {alcohol: 900000} ] );
         it("costs $9663.37", function(){
-            expect(result).toBe(9663.37);
+            expect(result).toBe(966337);
         });
     });
 
     /***************************************************/
 
     describe("$20.00 worth of other merchandise", function(){
-        var result = Pricing.priceItems( [ {other: 5}, {other: 15} ] );
+        var result = Pricing.priceItems( [ {other: 500}, {other: 1500} ] );
         it("costs $21.50", function(){
-            expect(result).toBe(21.5);
+            expect(result).toBe(2150);
         });
     });
 
     describe("$99.00 worth of other merchandise", function(){
-        var result = Pricing.priceItems( [ {other: 33}, {other: 33}, {other: 33} ] );
+        var result = Pricing.priceItems( [ {other: 3300}, {other: 3300}, {other: 3300} ] );
         it("costs $106.43", function(){
-            expect(result).toBe(106.43);
+            expect(result).toBe(10643);
         });
     });
 
     describe("$100.00 worth of other merchandise", function(){
-        var result = Pricing.priceItems( [ {other: 100} ] );
+        var result = Pricing.priceItems( [ {other: 10000} ] );
         it("costs $96.75", function(){
-            expect(result).toBe(96.75);
+            expect(result).toBe(9675);
         });
     });
 
     describe("$999.00 worth of other merchandise", function(){
-        var result = Pricing.priceItems( [ {other: 100}, {other: 100}, {other: 100}, {other: 100}, {other: 100},
-                                           {other: 100}, {other: 100}, {other: 100}, {other: 100},
-                                           {other: 90}, {other: 9} ] );
+        var result = Pricing.priceItems( [ {other: 10000}, {other: 10000}, {other: 10000}, {other: 10000}, {other: 10000},
+                                           {other: 10000}, {other: 10000}, {other: 10000}, {other: 10000},
+                                           {other: 9000}, {other: 900} ] );
         it("costs $966.53", function(){
-            expect(result).toBe(966.53);
+            expect(result).toBe(96653);
         });
     });
 
     describe("$1000.00 worth of other merchandise", function(){
-        var result = Pricing.priceItems( [ {other: 100}, {other: 100}, {other: 100}, {other: 100}, {other: 100},
-                                           {other: 100}, {other: 100}, {other: 100}, {other: 100},
-                                           {other: 95}, {other: 5} ] );
+        var result = Pricing.priceItems( [ {other: 10000}, {other: 10000}, {other: 10000}, {other: 10000}, {other: 10000},
+                                           {other: 10000}, {other: 10000}, {other: 10000}, {other: 10000},
+                                           {other: 9500}, {other: 500} ] );
         it("costs $913.75", function(){
-            expect(result).toBe(913.75);
+            expect(result).toBe(91375);
         });
     });
 
     describe("$9843.00 worth of other merchandise", function(){
-        var result = Pricing.priceItems( [ {other: 3}, {other: 40}, {other: 800}, {other: 9000} ] );
+        var result = Pricing.priceItems( [ {other: 300}, {other: 4000}, {other: 80000}, {other: 900000} ] );
         it("costs $8994.04", function(){
-            expect(result).toBe(8994.04);
+            expect(result).toBe(899404);
         });
     });
 
     /***************************************************/
 
     describe("$74.99 worth of food, $12.99 worth of alcohol, and $5.05 worth of other merchandise", function(){
-        var result = Pricing.priceItems( [ {food: 74.99}, {alcohol: 12.99}, {other: 5.05} ] );
+        var result = Pricing.priceItems( [ {food: 7499}, {alcohol: 1299}, {other: 505} ] );
         it("costs $95.42", function(){
-            expect(result).toBe(95.42);
+            expect(result).toBe(9542);
         });
     });
 
     /***************************************************/
 
     describe("$20.00 worth of food", function(){
-        var result = Pricing.priceItems( [ {food: 5}, {food: 15} ] );
+        var result = Pricing.priceItems( [ {food: 500}, {food: 1500} ] );
         it("costs $20.00", function(){
-            expect(result).toBe(20);
+            expect(result).toBe(2000);
         });
     });
 

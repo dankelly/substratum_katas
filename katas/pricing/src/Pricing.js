@@ -8,7 +8,7 @@ var Pricing = {
 
         var taxedTotals = applyTaxes(discountedTotals);
 
-        return sum(Object.values(taxedTotals).map(roundToPennies));
+        return sum(Object.values(taxedTotals).map(Math.round));
 
 
         function sum(integerArray){
@@ -34,9 +34,9 @@ var Pricing = {
             var discount = 0;
             var preDiscountTotal = sum(Object.values(totalsByCategory));
 
-            if(preDiscountTotal >= 100 && preDiscountTotal < 1000){
+            if(preDiscountTotal >= 10000 && preDiscountTotal < 100000){
                 discount = 0.1;
-            } else if(preDiscountTotal >= 1000){
+            } else if(preDiscountTotal >= 100000){
                 discount = 0.15;
             }
 
@@ -51,19 +51,6 @@ var Pricing = {
             totalsByCategory.alcohol += totalsByCategory.alcohol *= 0.155;
             totalsByCategory.other += totalsByCategory.other *= 0.075;
             return totalsByCategory;
-        }
-
-        function roundToPennies(amount){
-            var retval;
-            var hasThousandths = amount.toString().match(/^(\d*\.\d{2})(\d)\d*$/);
-            if(hasThousandths){
-                if(parseInt(hasThousandths[2]) >= 5) {
-                    retval =  parseFloat((parseFloat(hasThousandths[1]) + 0.01).toFixed(2));
-                } else {
-                    retval = parseFloat(hasThousandths[1]);
-                }
-            } else retval = amount;
-            return retval;
         }
     }
 
