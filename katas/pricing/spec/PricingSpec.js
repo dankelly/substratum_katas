@@ -159,6 +159,15 @@ describe("A purchase consisting of:", function() {
 
     /***************************************************/
 
+    describe("$74.99 worth of food, $12.99 worth of alcohol, and $5.05 worth of other merchandise", function(){
+        var result = Pricing.priceItems( [ {food: 74.99}, {alcohol: 12.99}, {other: 5.05} ] );
+        it("costs $95.42", function(){
+            expect(result).toBe(95.42);
+        });
+    });
+
+    /***************************************************/
+
     describe("$20.00 worth of food", function(){
         var result = Pricing.priceItems( [ {food: 5}, {food: 15} ] );
         it("costs $20.00", function(){
