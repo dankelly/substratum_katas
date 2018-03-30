@@ -8,7 +8,7 @@ var Pricing = {
 
         var taxedTotals = applyTaxes(discountedTotals);
 
-        return sum(Object.values(taxedTotals).map(Math.round));
+        return Math.round(sum(Object.values(taxedTotals)));
 
 
         function sum(integerArray){
