@@ -2,13 +2,13 @@ var Pricing = {
 
     priceItems: function(submittedItems){
 
-        var totalsByCategory = transformSubmittedItems(submittedItems);
+        var categorizedInput = transformInput(submittedItems);
 
-        var discountedTotals = applyDiscounts(totalsByCategory);
+        var discountedCategories = applyDiscounts(categorizedInput);
 
-        var taxedTotals = applyTaxes(discountedTotals);
+        var taxedCategories = applyTaxes(discountedCategories);
 
-        return Math.round(sum(extractTotals(taxedTotals)));
+        return Math.round(sum(extractTotals(taxedCategories)));
 
         function sum(integerArray){
             return integerArray.reduce( (accumulator, currentValue) => accumulator + currentValue );
@@ -18,7 +18,7 @@ var Pricing = {
             return Object.values(categoriesObject).map(categoryProperties => categoryProperties.total);
         }
 
-        function transformSubmittedItems(submittedItems){
+        function transformInput(submittedItems){
             var categories = {
                 food: {total: 0, taxRate: 0},
                 alcohol: {total:0, taxRate: 0.155},
@@ -33,25 +33,27 @@ var Pricing = {
             return categories;
         }
 
-        function applyDiscounts(categories){
+        function applyDiscounts(categorizedInput){
+            var discountedCategories = JSON.parse(JSON.stringify(categorizedInput));
             var discount = 0;
-            var preDiscountTotal = sum(extractTotals(categories));
+            var preDiscountTotal = sum(extractTotals(discountedCategories));
 
             if(preDiscountTotal >= 100000) discount = 0.15;
             else if(preDiscountTotal >= 10000) discount = 0.1;
 
-            Object.entries(categories).forEach(function(pair){
-                categories[pair[0]].total -= pair[1].total * discount;
+            Object.entries(discountedCategories).forEach(function(pair){
+                discountedCategories[pair[0]].total -= pair[1].total * discount;
             });
 
-            return categories;
+            return discountedCategories;
         }
 
-        function applyTaxes(totalsByCategory){
-            Object.entries(totalsByCategory).forEach(function(pair){
-                totalsByCategory[pair[0]].total += pair[1].total *= pair[1].taxRate;
+        function applyTaxes(discountedCategories){
+            var taxedCategories = JSON.parse(JSON.stringify(discountedCategories));
+            Object.entries(taxedCategories).forEach(function(pair){
+                taxedCategories[pair[0]].total += pair[1].total *= pair[1].taxRate;
             });
-            return totalsByCategory;
+            return taxedCategories;
         }
     }
 
