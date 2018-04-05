@@ -35,7 +35,7 @@ describe("A translator", function() {
         });
     });
 
-    describe("directed to translate the multi-character, all-uppercase string 'OMGASNAFU'", function () {
+    xdescribe("directed to translate the multi-character, all-uppercase string 'OMGASNAFU'", function () {
         var result =  Translator.camelToSnake("OMGASNAFU");
         it("produces 'o_m_g_a_s_n_a_f_u", function () {
             expect(result).toEqual("o_m_g_a_s_n_a_f_u");
@@ -67,6 +67,48 @@ describe("A translator", function() {
         var result = Translator.camelToSnake("ANextTestCase");
         it("produces 'a_next_test_case'", function(){
             expect(result).toEqual("a_next_test_case");
+        })
+    });
+
+    describe("directed to translate 'Fahrenheit451ByRayBradbury'", function(){
+        var result = Translator.camelToSnake("Fahrenheit451ByRayBradbury");
+        it("produces 'fahrenheit_451_by_ray_bradbury'", function(){
+            expect(result).toEqual("fahrenheit_451_by_ray_bradbury");
+        })
+    });
+
+    describe("directed to translate 'Fahrenheit451ByRayBradburyPage1'", function(){
+        var result = Translator.camelToSnake("Fahrenheit451ByRayBradburyPage1");
+        it("produces 'fahrenheit_451_by_ray_bradbury_page_1'", function(){
+            expect(result).toEqual("fahrenheit_451_by_ray_bradbury_page_1");
+        })
+    });
+
+    describe("directed to translate 'fahrenheit451ByRayBradburyPage93'", function(){
+        var result = Translator.camelToSnake("fahrenheit451ByRayBradburyPage93");
+        it("produces 'fahrenheit_451_by_ray_bradbury_page_93'", function(){
+            expect(result).toEqual("fahrenheit_451_by_ray_bradbury_page_93");
+        })
+    });
+
+    describe("directed to translate 'APIMethodV1'", function(){
+        var result = Translator.camelToSnake("APIMethodV1");
+        it("produces 'api_method_v_1'", function(){
+            expect(result).toEqual("api_method_v_1");
+        })
+    });
+
+    describe("directed to translate 'AnAPIMethodV2'", function(){
+        var result = Translator.camelToSnake("AnAPIMethodV2");
+        it("produces 'an_api_method_v_2'", function(){
+            expect(result).toEqual("an_api_method_v_2");
+        })
+    });
+
+    describe("directed to translate 'anAPIMethodV3'", function(){
+        var result = Translator.camelToSnake("anAPIMethodV3");
+        it("produces 'an_api_method_v_3'", function(){
+            expect(result).toEqual("an_api_method_v_3");
         })
     });
 
