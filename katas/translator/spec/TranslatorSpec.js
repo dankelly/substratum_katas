@@ -35,13 +35,6 @@ describe("A translator", function() {
         });
     });
 
-    xdescribe("directed to translate the multi-character, all-uppercase string 'OMGASNAFU'", function () {
-        var result =  Translator.camelToSnake("OMGASNAFU");
-        it("produces 'o_m_g_a_s_n_a_f_u", function () {
-            expect(result).toEqual("o_m_g_a_s_n_a_f_u");
-        });
-    });
-
     describe("directed to translate a name 'beginningWithALowercaseCharacter'", function(){
         var result = Translator.camelToSnake("beginningWithALowercaseCharacter");
         it("produces 'beginning_with_a_lowercase_character'", function(){
@@ -49,10 +42,10 @@ describe("A translator", function() {
         })
     });
 
-    describe("directed to translate 'WithAnUppercaseOne'", function(){
-        var result = Translator.camelToSnake("WithAnUppercaseOne");
-        it("produces 'with_an_uppercase_one'", function(){
-            expect(result).toEqual("with_an_uppercase_one");
+    describe("directed to translate 'BeginsWithUppercase'", function(){
+        var result = Translator.camelToSnake("BeginsWithUppercase");
+        it("produces 'begins_with_uppercase'", function(){
+            expect(result).toEqual("begins_with_uppercase");
         })
     });
 
@@ -91,24 +84,17 @@ describe("A translator", function() {
         })
     });
 
-    describe("directed to translate 'APIMethodV1'", function(){
-        var result = Translator.camelToSnake("APIMethodV1");
-        it("produces 'api_method_v_1'", function(){
-            expect(result).toEqual("api_method_v_1");
+    describe("directed to translate 'APIMethodV1ForExaminingRESTCalls'", function(){
+        var result = Translator.camelToSnake("APIMethodV1ForExaminingRESTCalls");
+        it("produces 'api_method_v_1_for_examining_rest_calls'", function(){
+            expect(result).toEqual("api_method_v_1_for_examining_rest_calls");
         })
     });
 
-    describe("directed to translate 'AnAPIMethodV2'", function(){
-        var result = Translator.camelToSnake("AnAPIMethodV2");
-        it("produces 'an_api_method_v_2'", function(){
-            expect(result).toEqual("an_api_method_v_2");
-        })
-    });
-
-    describe("directed to translate 'anAPIMethodV3'", function(){
-        var result = Translator.camelToSnake("anAPIMethodV3");
-        it("produces 'an_api_method_v_3'", function(){
-            expect(result).toEqual("an_api_method_v_3");
+    describe("directed to translate 'AnAPIMethodV2ForExaminingRESTCallToURL'", function(){
+        var result = Translator.camelToSnake("AnAPIMethodV2ForExaminingRESTCallToURL");
+        it("produces 'an_api_method_v_2_for_examining_rest_call_to_url'", function(){
+            expect(result).toEqual("an_api_method_v_2_for_examining_rest_call_to_url");
         })
     });
 
