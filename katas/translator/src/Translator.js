@@ -23,8 +23,14 @@ var Translator = {
         }
 
         function postProcess(string){
-            if(string[0] === '_') string = string.slice(1, string.length);
-            return string.replace(/(?<=\d)_(?=\d)/g, "");
+            if(string[0] === '_') string = string.slice(1, string.length)
+            var regex = /(\d)_(\d)/g;
+            var match = string.match(regex);
+            while(match){
+                string = string.replace(regex, '$1$2');
+                match = string.match(regex);
+            }
+            return string;
         }
 
         return postProcess( convert (preProcess(string) ) );
