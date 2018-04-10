@@ -10,61 +10,68 @@
  */
 
 describe("A set of line segments containing", function() {
-    var equilateral = [5, 5, 5],
-        isosceles = [7, 7, 3],
-        right = [5, 4, 3],
-        isoscelesAndRight = [11, 15.55634918610405, 11],
-        other = [2, 4, 3],
-        nonTriangle = [5, 5, 17];
+    const EQUILATERAL = [5, 5, 5],
+        ISOSCELES = [7, 7, 3],
+        RIGHT = [5, 4, 3],
+        ISOSCELES_AND_RIGHT = [11, 15.55634918610405, 11],
+        OTHER = [2, 4, 3],
+        NON_TRIANGLE = [5, 5, 17];
 
     beforeEach(function() {
         jasmine.addMatchers(Triangles.customMatchers);
     });
 
     describe("three equal segments", function(){
-        var result = Triangles.classifySegments(...equilateral);
+        var result = Triangles.classifySegments(...EQUILATERAL);
         it("forms an equilateral triangle", function(){
             expect(result).toBeEquilateral();
         });
     });
 
+    describe("three equal segments", function(){
+        var result = Triangles.classifySegments(...EQUILATERAL);
+        it("do not form an isosceles triangle", function(){
+            expect(result).not.toBeIsosceles();
+        });
+    });
+
     describe("two equal segments and a 3rd segment much larger than than either of them", function(){
-        var result = Triangles.classifySegments(...nonTriangle);
+        var result = Triangles.classifySegments(...NON_TRIANGLE);
         it("cannot form a triangle", function(){
             expect(result).toNotBeTriangluar();
         });
     });
 
     describe("two equal segments and a 3rd segment smaller than either of them", function(){
-        var result = Triangles.classifySegments(...isosceles);
+        var result = Triangles.classifySegments(...ISOSCELES);
         it("forms an isosceles triangle", function(){
             expect(result).toBeIsosceles();
         });
     });
 
     describe("three unequal lengths, with the sum of the squares of the shorter 2 segments equal to the square of the third", function(){
-        var result = Triangles.classifySegments(...right);
+        var result = Triangles.classifySegments(...RIGHT);
         it("forms a right triangle", function(){
             expect(result).toBeRight();
         });
     });
 
     describe("two equal lengths, with the sum of the squares of the shorter 2 segments equal to the square of the third", function(){
-        var result = Triangles.classifySegments(...isoscelesAndRight);
+        var result = Triangles.classifySegments(...ISOSCELES_AND_RIGHT);
         it("forms an isosceles triangle", function(){
             expect(result).toBeIsosceles();
         });
     });
 
     describe("two equal lengths, with the sum of the squares of the shorter 2 segments equal to the square of the third", function(){
-        var result = Triangles.classifySegments(...isoscelesAndRight);
+        var result = Triangles.classifySegments(...ISOSCELES_AND_RIGHT);
         it("forms a right triangle", function(){
             expect(result).toBeRight();
         });
     });
 
     describe("three segments which form a triangle which is not equilateral nor isosceles nor right", function(){
-        var result = Triangles.classifySegments(...other);
+        var result = Triangles.classifySegments(...OTHER);
         it("forms a triangle which is not equilateral nor isosceles nor right", function(){
             expect(result).toBeOtherTriangle();
         });

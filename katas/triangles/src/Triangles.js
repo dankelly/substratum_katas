@@ -11,7 +11,7 @@ var Triangles = {
         [a, b, c] = [a, b, c].sort((x, y) => x - y);
         if(a + b <= c) results.push(Triangles.NOT_A_TRIANGLE);
         if(a === b && b === c) results.push(Triangles.EQUILATERAL);
-        if(a === b || b === c) results.push(Triangles.ISOSCELES);
+        if((a === b || b === c) && !results.includes(Triangles.EQUILATERAL)) results.push(Triangles.ISOSCELES);
         if(a*a + b*b === Triangles.squareWithPrecision(c, 9)) results.push(Triangles.RIGHT);
         if(results.length === 0) results.push(Triangles.OTHER);
         return results;
